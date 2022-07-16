@@ -28,9 +28,7 @@ exports.getForecast = (latitude, longitude, callback) => {
             }
             else {
                 data = response.body.current;
-                for (let property in data) {
-                    console.log(`${property}: ${data[property]}`);
-                }
+                callback(data);
             }
         }
     )

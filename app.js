@@ -23,7 +23,7 @@ forecast.getForecast(40.7831, -73.9712, (error, data) => {
         console.log(error);
     }
     else {
-        console.log('Data', data);
+        console.log(data);
     }
 })
 
