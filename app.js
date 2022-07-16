@@ -4,11 +4,10 @@
 
 const request = require('request');
 const apiKeys = require('./config');
-const geoLocation = require('./api/geolocation.js');
+const geoLocation = require('./utils/geolocation.js');
 
 let addressString = '1600 Pennsylvania Ave NW, Washington DC';
 
-// console.log(api.geoLocation.getLocation(addressString));
 geoLocation.getLocation(addressString, (error, data) => {
     console.log(error);
     console.log('Data:', data);

@@ -1,5 +1,5 @@
 const request = require('request');
-const apiKeys = require('../config');
+const apiKeys = require('../config/apikeys');
 
 
 exports.getLocation = (addressString, callback) => {
@@ -23,13 +23,17 @@ exports.getLocation = (addressString, callback) => {
             }
             else {
                 data = response.body.data[0];
-                console.log(`Longitude: ${data.longitude}`);
-                console.log(`Latitude: ${data.latitude}`);
+                callback(
+                    undefined, 
+                    {
+                        latitude: data.latitude, 
+                        longitude: data.longitude, 
+                        zip_code: data.postal_code
+                    }
+                )
             }
         }
     )
-
-
 }
 
 
