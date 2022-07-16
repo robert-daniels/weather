@@ -1,3 +1,7 @@
 const geoLocation = require('./geoLocation');
+const forecast = require('./forecast')
 
-exports.geoLocation = geoLocation;
+module.exports = {
+    geoLocation: geoLocation,
+    forecast: forecast
+}

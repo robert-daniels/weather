@@ -1,6 +1,13 @@
 const request = require('request');
 const apiKeys = require('../config/apikeys');
 
+/**
+ * Pulls latitude and longitude from Positionstack API
+ * 
+ * @param {string} addressString of location to request from API
+ * @param {function} callback function, what to do with the request response
+ */
+
 
 exports.getLocation = (addressString, callback) => {
     const geoLocationURL = `http://api.positionstack.com/v1/forward` + 
