@@ -22,8 +22,8 @@ if (!addressString){
                 return console.log(error);
             }
 
-            console.log(`Here is the weather for: ${data.label}`);
-            console.log(forecastData);
+            console.log(`The current conditions for: ${data.label}`);
+            console.log(`${forecastData.weather_descriptions}. It is currently ${forecastData.temperature} degrees C out. There is a ${forecastData.precip}% chance of rain today.`);
             
         })
         
