@@ -7,25 +7,30 @@ const apiKeys = require('./config');
 const geoLocation = require('./utils/geolocation.js');
 const forecast = require('./utils/forecast.js')
 
-let addressString = '1600 Pennsylvania Ave NW, Washington DC';
+let addressString = process.argv[2];
 
-geoLocation.getLocation(addressString, (error, data) => {
-    if (error){
-        console.log(error);
-    }
-    else {
-        console.log('Data:', data);
-    }
-});
+if (!addressString){
+    console.log("Error: you must provide an address in the command line to run")
+} else{
+    geoLocation.getLocation(addressString, (error, data) => {
+        if (error){
+            return console.log(error);
+        }
+        
+        forecast.getForecast(data.latitude, data.longitude , (error, forecastData) => {
+            if (error) {
+                return console.log(error);
+            }
 
-forecast.getForecast(40.7831, -73.9712, (error, data) => {
-    if (error) {
-        console.log(error);
-    }
-    else {
-        console.log(data);
-    }
-})
+            console.log(`Here is the weather for: ${data.label}`);
+            console.log(forecastData);
+            
+        })
+        
+        
+    });
+}
+
 
 
 

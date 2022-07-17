@@ -35,7 +35,7 @@ exports.getLocation = (addressString, callback) => {
                     {
                         latitude: data.latitude, 
                         longitude: data.longitude, 
-                        zip_code: data.postal_code
+                        label: data.label
                     }
                 )
             }
